@@ -55,7 +55,7 @@ class CommonController extends Controller
     }
 
  public function getSalaryType(Request $request){
-         $data=SalaryType::where('department_id',$request->department_id)->get()->toArray();
+         $data=SalaryType::get()->toArray();
         echo json_encode($data);      
       }
 

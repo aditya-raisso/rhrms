@@ -185,6 +185,7 @@ class EmployeeController extends ComissionController
             'division'=> 'nullable|string|exists:departments,id',
             'payroll_frequency'=> 'required|string|exists:salary_types,salary_type',
             'shift_timing'=> 'nullable|max:100',
+            'shift_end_time'=> 'nullable|max:100',
             'working_type'=> 'required|string',
              
             // 'wt_payrate'=> 'required_if:employmentCategory,==,1',
@@ -220,6 +221,7 @@ class EmployeeController extends ComissionController
             'marital_status'=>$request->marital_status,
             'working_type'=> $request->working_type,
             'shift_timing'=> $request->shift_timing,
+            'shift_end_time'=> $request->shift_end_time,
             'country'=> $request->country,
             'state'=> $request->state,
             'city'=> $request->city,
@@ -341,6 +343,7 @@ class EmployeeController extends ComissionController
             'division'=> 'nullable|string|exists:departments,id',
             'salary_type'=> 'required|string|exists:salary_types,salary_type',
             'shift_timing'=> 'nullable|max:100',
+            'shift_end_time'=> 'nullable|max:100',
             'working_type'=> 'required|string',
         ],[
                  'employmentType.exists' => 'Employment type does not exist.',
@@ -366,6 +369,7 @@ class EmployeeController extends ComissionController
             'marital_status'=>$request->marital_status,
             'working_type'=> $request->working_type,
             'shift_timing'=> $request->shift_timing,
+            'shift_end_time'=> $request->shift_end_time,
             'country'=> $request->country,
             'state'=> $request->state,
             'city'=> $request->city,
@@ -389,7 +393,7 @@ class EmployeeController extends ComissionController
             'bill_rate'=>$request->bill_rate,
              'wt_payrate'=>$request->wt_payrate,
             );
-           
+          
 
          if(isset($request->account_status)){
            $store['account_status']=$request->account_status;
