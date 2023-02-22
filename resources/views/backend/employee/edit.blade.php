@@ -334,7 +334,7 @@
                                  @endif
                               </div>
                               
-                              <div class="form-group col-md-6">
+                              <div class="form-group col-md-12">
                                  <label>Working Type <span class="text-danger">*</span></label>
                                  <select class="form-control" name="working_type">
                                     <option value="" >Select Working Type</option>
@@ -346,13 +346,19 @@
                                  <div class="error">{{ $errors->first('working_type') }}</div>
                                  @endif
                               </div>
-                              <div class="form-group col-md-6">
-                                 <label>Shift Timing<span class="text-danger">*</span></label>
-                                 <input type="time" name="shift_timing" class="form-control" value="{{$data->shift_timing}}">
-                                 @if ($errors->has('shift_timing'))
-                                 <div class="error">{{ $errors->first('shift_timing') }}</div>
-                                 @endif
-                              </div>
+                              <div class="col-md-6">
+                                    <div class="form-label-group outline">
+                                       <input type="time" name="shift_timing" value="{{old('shift_timing',$data->shift_timing)}}" class="form-control shadow-none ">
+                                       <span><label for="email">Shift Start Time</label></span>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <div class="form-label-group outline">
+                                       <input type="time" name="shift_end_time" value="{{old('shift_end_time',$data->shift_end_time)}}" class="form-control shadow-none ">
+                                       <span><label for="email">Shift End Time</label></span>
+                                       </div>
+                                    </div>
+
                            </div>
                            <!--/.row-->
                         </div>
@@ -368,9 +374,9 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                            <div class="row">
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-4" id="assign_recruiter">
                                  <label>Assign Recruiter </label>
-                                 <select class="form-control select2" name="assign_recruiter" id="assign_recruiter">
+                                 <select class="form-control select2" name="assign_recruiter" >
                                     <option value="" >Select Report to</option>
                                     @foreach ($allUsers as $allUser)
                                     @if($allUser->role_id == 5)
@@ -382,9 +388,9 @@
                                  <div class="error">{{ $errors->first('report_to') }}</div>
                                  @endif
                               </div>
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-4" id="assign_recruiter_lead">
                                  <label>Assign Recruiter Lead </label>
-                                 <select class="form-control select2" name="assign_recruiter_lead" id="assign_recruiter_lead">
+                                 <select class="form-control select2" name="assign_recruiter_lead" >
                                     <option value="" >Select Report to</option>
                                     @foreach ($allUsers as $allUser)
                                     @if($allUser->role_id == 4)
@@ -396,9 +402,9 @@
                                  <div class="error">{{ $errors->first('report_to') }}</div>
                                  @endif
                               </div>
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-4" id="assign_delivery_manager">
                                  <label>Assign Delivery Manager </label>
-                                 <select class="form-control select2" name="assign_delivery_manager" id="assign_delivery_manager">
+                                 <select class="form-control select2" name="assign_delivery_manager" >
                                     <option value="" >Select Report to</option>
                                     @foreach ($allUsers as $allUser)
                                     @if($allUser->role_id == 3)
@@ -410,9 +416,9 @@
                                  <div class="error">{{ $errors->first('report_to') }}</div>
                                  @endif
                               </div>
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-4" id="assign_bdm">
                                  <label>Assign BDM </label>
-                                 <select class="form-control select2" name="assign_bdm" id="assign_bdm">
+                                 <select class="form-control select2" name="assign_bdm" >
                                     <option value="" >Select Report to</option>
                                     @foreach ($allUsers as $allUser)
                                     @if($allUser->role_id == 7)
@@ -424,9 +430,9 @@
                                  <div class="error">{{ $errors->first('report_to') }}</div>
                                  @endif
                               </div>
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-4" id="assign_vp">
                                  <label>Assign VP </label>
-                                 <select class="form-control select2" name="assign_vp" id="assign_vp">
+                                 <select class="form-control select2" name="assign_vp" >
                                     <option value="" >Select Report to</option>
                                     @foreach ($allUsers as $allUser)
                                     @if($allUser->role_id == 8)
@@ -438,7 +444,7 @@
                                  <div class="error">{{ $errors->first('report_to') }}</div>
                                  @endif
                               </div>
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-4" id="a_m">
                                  <label>Assign Account Manager </label>
                                  <select class="form-control select2" name="assign_account_manager" id="assign_account_manager">
                                     <option value="" >Select Report to</option>
@@ -598,13 +604,5 @@
            );
          });
 
- $("#designation").on('change',function(){
-         var   id=$(this).val();
-         alert('asd');
-            if(id !=11){
-                $("#rate_section").hide();
-            }else{
-                 $("#rate_section").show();
-            }
-         });
+
 </script>

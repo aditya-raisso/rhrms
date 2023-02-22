@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
     'id','avatar','emp_id','first_name','last_name','middle_name','gender','email','email_verified_at','password','mobile_number','report_to','department','designation','start_date','end_date','reason_for_resignation','working_type','shift_timing','marital_status','country','state','city','salary_type','pincode','current_address','employment_category_id','employment_type','permanent_address','role_id','type','account_status','deleted_at','bill_rate','vendor_cost_id','wt_payrate','net_margin','placement','create_by','assign_delivery_manager','assign_recruiter_lead','assign_recruiter','assign_account_manager','assign_bdm',
-    'assign_vp','blood_group','dob','married_date','emergency_contact','commission_type_account_manager','alies_name','stipned','gross_pay','delivery_director','stipend_perdiem',
+    'assign_vp','blood_group','dob','married_date','emergency_contact','commission_type_account_manager','alies_name','stipned','gross_pay','delivery_director','stipend_perdiem','shift_end_time',
     ];
 
     /**

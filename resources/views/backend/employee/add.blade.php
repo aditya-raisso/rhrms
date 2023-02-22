@@ -324,10 +324,10 @@
                                     @endif
                                  </div>
                                
-                                 <div class="form-group col-md-6">
-                                    <label>Working Type <span class="text-danger">*</span></label>
+                                 <div class="form-group col-md-12">
+                                    <label>Working Mode <span class="text-danger">*</span></label>
                                     <select class="form-control select2" name="working_type">
-                                       <option value="" >Select Working Type</option>
+                                       <option value="" >Select Working Mode</option>
                                        <option value="REMOTE" @if(old('working_type') == 'REMOTE')selected @endif>REMOTE</option>
                                        <option value="ONSITE" @if(old('working_type') == 'ONSITE')selected @endif>ONSITE</option>
                                        <option value="HYBRID" @if(old('working_type') == 'HYBRID')selected @endif>HYBRID</option>
@@ -336,13 +336,20 @@
                                     <div class="error">{{ $errors->first('working_type') }}</div>
                                     @endif
                                  </div>
-                                 <div class="form-group col-md-6">
-                                    <label>Shift Timing </label>
-                                    <input type="time" name="shift_timing" class="form-control" value="{{old('shift_timing')}}">
-                                    @if ($errors->has('shift_timing'))
-                                    <div class="error">{{ $errors->first('shift_timing') }}</div>
-                                    @endif
-                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="form-label-group outline">
+                                       <input type="time" name="shift_timing" value="{{old('shift_timing')}}" class="form-control shadow-none ">
+                                       <span><label for="email">Shift Start Time</label></span>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <div class="form-label-group outline">
+                                       <input type="time" name="shift_end_time" value="{{old('shift_end_timing')}}" class="form-control shadow-none ">
+                                       <span><label for="email">Shift End Timing</label></span>
+                                       </div>
+                                    </div>
+
+                              
                               </div>
                               <!--/.row-->
                            </div>
@@ -358,9 +365,10 @@
                            <!-- /.card-header -->
                            <div class="card-body">
                               <div class="row">
-                                 <div class="form-group col-md-4">
+
+                                 <div class="form-group col-md-4" id="assign_recruiter">
                                     <label>Recruiter </label>
-                                    <select class="form-control select2" name="assign_recruiter" id="assign_recruiter">
+                                    <select class="form-control select2" name="assign_recruiter" >
                                        <option value="" >Select assign recruiter</option>
                                        @foreach ($allUsers as $recruiter)
                                        @if($recruiter->role_id == 5)
@@ -372,9 +380,9 @@
                                     <div class="error">{{ $errors->first('assign_recruiter') }}</div>
                                     @endif
                                  </div>
-                                 <div class="form-group col-md-4">
+                                 <div class="form-group col-md-4" id="assign_recruiter_lead">
                                     <label>Recruiter Lead </label>
-                                    <select class="form-control select2" name="assign_recruiter_lead" id="assign_recruiter_lead">
+                                    <select class="form-control select2" name="assign_recruiter_lead" >
                                        <option value="" >Select Report to</option>
                                        @foreach ($allUsers as $rl)
                                        @if($rl->role_id == 4)
@@ -386,9 +394,9 @@
                                     <div class="error">{{ $errors->first('assign_recruiter_lead') }}</div>
                                     @endif
                                  </div>
-                                 <div class="form-group col-md-4">
+                                 <div class="form-group col-md-4" id="assign_delivery_manager">
                                     <label>Delivery Manager </label>
-                                    <select class="form-control select2" name="assign_delivery_manager" id="assign_delivery_manager">
+                                    <select class="form-control select2" name="assign_delivery_manager" >
                                        <option value="" >Select Delivery Manager</option>
                                        @foreach ($allUsers as $dm)
                                        @if($dm->role_id == 3)
@@ -400,9 +408,9 @@
                                     <div class="error">{{ $errors->first('assign_delivery_manager') }}</div>
                                     @endif
                                  </div>
-                                 <div class="form-group col-md-4">
+                                 <div class="form-group col-md-4" id="delivery_director">
                                     <label>Delivery Director </label>
-                                    <select class="form-control select2" name="delivery_director" id="delivery_director">
+                                    <select class="form-control select2" name="delivery_director" >
                                        <option value="" >Select Delivery Director</option>
                                        @foreach ($allUsers as $dd)
                                        @if($dd->role_id == 14)
@@ -415,9 +423,9 @@
                                     <div class="error">{{ $errors->first('delivery_director') }}</div>
                                     @endif
                                  </div>
-                                 <div class="form-group col-md-4">
+                                 <div class="form-group col-md-4" id="assign_bdm">
                                     <label>BDM </label>
-                                    <select class="form-control select2" name="assign_bdm" id="assign_bdm">
+                                    <select class="form-control select2" name="assign_bdm" >
                                        <option value="" >Select Assign BDM</option>
                                        @foreach ($allUsers as $bdm)
                                        @if($bdm->role_id == 7)
@@ -429,9 +437,9 @@
                                     <div class="error">{{ $errors->first('assign_bdm') }}</div>
                                     @endif
                                  </div>
-                                 <div class="form-group col-md-4">
+                                 <div class="form-group col-md-4" id="assign_vp">
                                     <label>Vice president </label>
-                                    <select class="form-control select2" name="assign_vp" id="assign_vp">
+                                    <select class="form-control select2" name="assign_vp" >
                                        <option value="" >Select VP</option>
                                        @foreach ($allUsers as $vp)
                                        @if($vp->role_id == 8)
@@ -444,7 +452,7 @@
                                     <div class="error">{{ $errors->first('assign_vp') }}</div>
                                     @endif
                                  </div>
-                                 <div class="form-group col-md-4">
+                                 <div class="form-group col-md-4" id="a_m">
                                     <label> Account Manager </label>
                                     <select class="form-control select2" name="assign_account_manager" id="assign_account_manager">
                                        <option value="" >Select Account Manager</option>
@@ -601,12 +609,5 @@
            );
          });
 
- $("#designation").on('change',function(){
-         var   id=$(this).val();
-            if(id !=11){
-                $("#rate_section").hide();
-            }else{
-                 $("#rate_section").show();
-            }
-         });
+   
 </script>

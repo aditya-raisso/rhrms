@@ -1039,7 +1039,70 @@
 
      
  });
+$("#designation").on('change',function(){
+   var   id=$(this).val();
+   if(id==5){
 
+   $("#assign_recruiter").hide();
+   }else{
+   $("#assign_recruiter").show();
+   }
+
+   if(id==4){
+   $("#assign_recruiter").hide();
+   $("#assign_recruiter_lead").hide();
+   }else{
+   $("#assign_recruiter_lead").show();
+  
+   }
+
+   if(id==3){
+
+   $("#assign_delivery_manager").hide();
+   }else{
+   $("#assign_delivery_manager").show();
+
+   }
+
+   if(id==7){
+
+   $("#assign_bdm").hide();
+   }else{
+   $("#assign_bdm").show();
+
+   }
+
+   if(id==14){
+
+   $("#delivery_director").hide();
+   }else{
+   $("#delivery_director").show();
+
+   }
+
+   if(id==8){
+
+   $("#assign_vp").hide();
+   }else{
+   $("#assign_vp").show();
+
+   }
+
+   if(id==6){
+
+   $("#a_m").hide();
+   }else{
+   $("#a_m").show();
+
+   }
+
+
+   if(id !=11){
+   $("#rate_section").hide();
+   }else{
+   $("#rate_section").show();
+   }
+   });
         
       </script>
    </body>

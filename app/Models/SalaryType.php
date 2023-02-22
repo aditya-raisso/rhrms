@@ -13,4 +13,9 @@ class SalaryType extends Model
         'salary_type','department_id',
         
     ];
+
+    public function getSalaryTypeAttribute($value)
+    {
+        return ucwords($value);
+    }
 }
